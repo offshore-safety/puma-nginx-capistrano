@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
-# TODO update the apt repo
+include_recipe 'apt::default'
 
 include_recipe 'puma-nginx::users'
 
