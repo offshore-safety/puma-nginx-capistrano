@@ -16,8 +16,6 @@ include_recipe 'puma-nginx::puma'
 
 include_recipe 'puma-nginx::ntp'
 
-include_recipe 'puma-nginx::sql_server'
-
 include_recipe 'puma-nginx::config'
 
 include_recipe 'puma-nginx::js_runtime'
