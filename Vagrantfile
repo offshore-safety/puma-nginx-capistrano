@@ -100,6 +100,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         name:'<insert DB name here>',
         user: '<insert DB user here>',
         password: '<insert DB password here>'
+      },
+      environment_variables: {
+        # '<insert key/value here>'
       }
     }
 
