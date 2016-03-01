@@ -1,5 +1,5 @@
 upstream puma {
-  server unix:///home/deploy/apps/<%= node[:app][:name] %>/shared/tmp/sockets/<%= node[:app][:name] %>-puma.sock;
+  server localhost:5000;
 }
 
 server {
