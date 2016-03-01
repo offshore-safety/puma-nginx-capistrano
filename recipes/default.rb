@@ -12,7 +12,9 @@ include_recipe 'puma-nginx::ruby'
 
 include_recipe 'puma-nginx::nginx'
 
-include_recipe 'puma-nginx::puma'
+# include_recipe 'puma-nginx::puma'
+
+include_recipe 'puma-nginx::redis'
 
 include_recipe 'puma-nginx::ntp'
 
