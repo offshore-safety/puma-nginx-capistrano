@@ -15,11 +15,12 @@ Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 # User alias specification
 
 # Cmnd alias specification
-Cmnd_Alias	MANAGE_SERVICE = /sbin/start submissions-backend, /sbin/stop submissions-backend, /sbin/restart submissions-backend
+Cmnd_Alias	MANAGE_SERVICE = /sbin/start <%= node[:app][:name] %>, /sbin/stop <%= node[:app][:name] %>, /sbin/restart <%= node[:app][:name] %>
+Cmnd_Alias  UPSTART_CONFIG = /usr/local/bin/bundle exec foreman export*
 
 # User privilege specification
 root	ALL=(ALL:ALL) ALL
-deploy  ALL=(ALL) NOPASSWD:MANAGE_SERVICE
+deploy  ALL=(ALL) NOPASSWD:MANAGE_SERVICE,UPSTART_CONFIG
 
 # Members of the admin group may gain root privileges
 %admin ALL=(ALL) ALL
