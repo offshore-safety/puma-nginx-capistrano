@@ -80,9 +80,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       app: {
         name: 'myapp'
       },
-      rbenv: {
-        rubies: ['2.2.3']
-      },
+      ruby: '2.2',
       security: {
         authorized_keys: [
           # '<insert deploy user key here>'

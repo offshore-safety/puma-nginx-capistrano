@@ -4,9 +4,15 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
-include_recipe 'ruby_build'
-include_recipe 'rbenv::system'
+apt_repository 'brightbox-ruby' do
+  uri   'ppa:brightbox/ruby-ng'
+  distribution 'trusty'
+end
 
-rbenv_global node[:rbenv][:rubies].first
+package "ruby#{node[:ruby]}"
 
-rbenv_gem 'bundler'
+package "ruby#{node[:ruby]}-dev"
+
+execute 'install Bundler' do
+  command 'gem install bundler'
+end
