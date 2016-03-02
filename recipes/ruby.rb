@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
-['build-essential', 'git', 'libxml2-dev', 'libxslt1-dev', 'libssl-dev', 'zlib1g-dev'] do |p|
+['build-essential', 'git', 'libxml2-dev', 'libxslt1-dev', 'libssl-dev', 'zlib1g-dev'].each do |p|
   package p
 end
 
