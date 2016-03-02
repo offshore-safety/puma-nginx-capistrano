@@ -26,4 +26,16 @@ template "#{deploy_user_home}/.ssh/authorized_keys" do
   mode '0600'
 end
 
-# TODO add deploy to the sudoers group?
+template "/etc/sudoers" do
+  source 'sudoers.erb'
+  owner 'root'
+  group 'root'
+  mode '0440'
+end
+
+user node[:app][:name] do
+  comment 'User for running application'
+  shell '/sbin/nologin'
+  system true
+  manage_home false
+end
