@@ -4,8 +4,12 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
+['build-essential', 'git', 'libxml2-dev', 'libxslt1-dev', 'libssl-dev', 'zlib1g-dev'] do |p|
+  package p
+end
+
 apt_repository 'brightbox-ruby' do
-  uri   'ppa:brightbox/ruby-ng'
+  uri 'ppa:brightbox/ruby-ng'
   distribution 'trusty'
 end
 
