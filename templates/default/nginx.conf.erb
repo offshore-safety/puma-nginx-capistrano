@@ -8,6 +8,8 @@ server {
   server_name         <%= node[:ssl][:server_name] %>;
   ssl_certificate     <%= node[:ssl][:cert_path] %>;
   ssl_certificate_key <%= node[:ssl][:cert_key_path] %>;
+  ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers         'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
   <% else %>
   listen 80 default_server deferred;
   <% end %>
