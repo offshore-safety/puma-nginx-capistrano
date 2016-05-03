@@ -3,8 +3,14 @@ upstream puma {
 }
 
 server {
+  <% if node[:ssl] %>
+  listen 443 ssl;
+  server_name         <%= node[:ssl][:server_name] %>;
+  ssl_certificate     <%= node[:ssl][:cert_path] %>;
+  ssl_certificate_key <%= node[:ssl][:cert_key_path] %>;
+  <% else %>
   listen 80 default_server deferred;
-  # server_name example.com;
+  <% end %>
 
   root /home/deploy/apps/<%= node[:app][:name] %>/current/public;
   access_log /home/deploy/apps/<%= node[:app][:name] %>/current/log/nginx.access.log;
