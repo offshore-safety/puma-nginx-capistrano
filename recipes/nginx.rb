@@ -6,6 +6,14 @@
 
 package 'nginx'
 
+if node[:ssl]
+  execute 'generate stronger DHE parameter' do
+    command 'openssl dhparam -out dhparam.pem 4096'
+    cwd '/etc/ssl/certs'
+    not_if { ::File.exist? '/etc/ssl/certs/dhparam.pem' }
+  end
+end
+
 file '/etc/nginx/sites-enabled/default' do
   action :delete
 end
