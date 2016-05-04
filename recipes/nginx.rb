@@ -7,7 +7,7 @@
 package 'nginx'
 
 if node[:ssl]
-  execute 'generate stronger DHE parameter' do
+  execute 'generate stronger DHE parameter (this will take a long time)' do
     command 'openssl dhparam -out dhparam.pem 4096'
     cwd '/etc/ssl/certs'
     not_if { ::File.exist? '/etc/ssl/certs/dhparam.pem' }
