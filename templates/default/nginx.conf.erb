@@ -2,6 +2,13 @@ upstream puma {
   server localhost:5000;
 }
 
+<% if node[:ssl] %>
+server {
+  listen 80 default deferred;
+  return 301 https://$host$request_uri;
+}
+<% end %>
+
 server {
   <% if node[:ssl] %>
   listen 443 ssl;
